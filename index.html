@@ -1,515 +1,276 @@
-You're right! Let me provide a complete, working HTML file. Here's the full code that will work perfectly:
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dareen Al-Haj Hasan | Junior Data Analyst</title>
+    <title>Dareen Al-Haj Hasan | Data Analyst</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.7;
-            color: #2d3748;
-            overflow-x: hidden;
-        }
-
-        /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #3182ce !important;
-            text-decoration: none;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: #4a5568;
-            font-weight: 500;
-            position: relative;
-            transition: color 0.3s ease;
-            cursor: pointer;
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: #3182ce !important;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-            text-align: center;
-            padding: 0 2rem;
-        }
-
-        .hero-content h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #3182ce, #2b6cb0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-content .subtitle {
-            font-size: 1.5rem;
-            color: #4a5568;
-            margin-bottom: 2rem;
-            font-weight: 400;
-        }
-
-        /* Sections */
-        .section {
-            padding: 120px 0;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-left: 2rem;
-            padding-right: 2rem;
-        }
-
-        .section-title {
-            font-size: 3rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 4rem;
-            background: linear-gradient(135deg, #3182ce, #2b6cb0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* About */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .profile-image {
-            width: 300px;
-            height: 300px;
-            background: linear-gradient(135deg, #3182ce, #2b6cb0);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 4rem;
-            margin: 0 auto;
-            box-shadow: 0 20px 40px rgba(49, 130, 206, 0.2);
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: #f7fafc;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateX(10px);
-            background: #edf2f7;
-        }
-
-        .summary {
-            font-size: 1.1rem;
-            color: #4a5568;
-            line-height: 1.8;
-        }
-
-        /* Projects */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border: 1px solid #e2e8f0;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-        }
-
-        .project-tech {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .tech-tag {
-            background: linear-gradient(135deg, #3182ce, #2b6cb0);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .project-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #2d3748;
-        }
-
-        .project-btn {
-            margin-top: 1.5rem;
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, #3182ce, #2b6cb0);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .project-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(49, 130, 206, 0.3);
-        }
-
-        /* Impact */
-        .impact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .impact-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border-left: 5px solid #3182ce;
-        }
-
-        .impact-number {
-            font-size: 3rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #3182ce, #2b6cb0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-        }
-
-        /* Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .skill-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: #3182ce;
-        }
-
-        .skills-list {
-            list-style: none;
-        }
-
-        .skill-item {
-            margin-bottom: 1.5rem;
-        }
-
-        .skill-name {
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Contact */
-        .contact-content {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            padding: 1rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            font-family: inherit;
-            transition: border-color 0.3s ease;
-            width: 100%;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #3182ce;
-        }
-
-        .submit-btn {
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, #48bb78, #38a169);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(72, 187, 120, 0.3);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-            
-            .about-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 2rem;
-            }
-            
-            .section {
-                padding: 80px 1rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
+    <nav class="navbar">
         <div class="nav-container">
-            <a href="#home" class="logo">DAREEN</a>
+            <div class="logo">
+                <a href="#home">Dareen</a>
+            </div>
             <ul class="nav-menu">
-                <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
-                <li><a href="#about" class="nav-link" data-section="about">About</a></li>
-                <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
-                <li><a href="#impact" class="nav-link" data-section="impact">Impact</a></li>
-                <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>DAREEN AL-HAJ HASAN</h1>
-            <p class="subtitle">Junior Data Analyst</p>
-            <p style="font-size: 1.2rem; color: #718096; max-width: 600px; margin: 0 auto;">
-                MIS Graduate (Excellent GPA 3.69) | Excel/VBA Expert | Power BI Specialist | 
-                Transforming raw data into strategic business insights
-            </p>
+            <div class="hero-text">
+                <h1 class="hero-title">Dareen Al-Haj Hasan</h1>
+                <h2 class="hero-subtitle">Data Analyst</h2>
+                <p class="hero-description">
+                    MIS Graduate passionate about turning complex data into actionable business insights. 
+                    Expert in Excel, SQL, Power BI, and data visualization.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="profile-card">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="section">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-grid">
-            <div>
-                <div class="profile-image">
-                    <i class="fas fa-chart-line"></i>
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Management Information Systems graduate with excellent GPA (3.69). 
+                        I specialize in transforming raw data into strategic insights through advanced Excel automation, 
+                        SQL querying, and interactive Power BI dashboards.
+                    </p>
+                    <p>
+                        My goal is to help organizations make data-driven decisions that drive growth and efficiency.
+                    </p>
                 </div>
-            </div>
-            <div>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-phone" style="color: #3182ce;"></i>
-                        <span>+962 788543208</span>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-broom"></i>
+                        </div>
+                        <h3>Data Cleaning</h3>
+                        <p>Transform messy datasets into reliable sources for analysis</p>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope" style="color: #3182ce;"></i>
-                        <span>dareenalhajhasan@gmail.com</span>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3>Dashboard Creation</h3>
+                        <p>Build interactive visualizations for business stakeholders</p>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt" style="color: #3182ce;"></i>
-                        <span>Amman, Abu Nseir</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-linkedin" style="color: #3182ce;"></i>
-                        <span>LinkedIn | Portfolio available upon request</span>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Business Insights</h3>
+                        <p>Deliver actionable recommendations from data analysis</p>
                     </div>
                 </div>
-                <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #3182ce;">SUMMARY</h3>
-                <p class="summary">
-                    MIS Graduate (Excellent GPA of 3.69) specializing in Excel/VBA automation, SQL & Power BI analytics. 
-                    Proven ability to clean datasets and build interactive dashboards that deliver actionable insights 
-                    for business decisions.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section" style="background: #f7fafc;">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-tech">
-                    <span class="tech-tag">Excel</span>
-                    <span class="tech-tag">VBA</span>
-                </div>
-                <h3 class="project-title">Automated Financial Management System</h3>
-                <p>Engineered a VBA system with dynamic entry forms and real-time KPI dashboards to analyze actual vs. planned spending across multiple financial metrics.</p>
-                <a href="#" class="project-btn" onclick="alert('Project demo coming soon!')">
-                    <i class="fas fa-eye"></i> View Demo
-                </a>
-            </div>
-            <div class="project-card">
-                <div class="project-tech">
-                    <span class="tech-tag">Power BI</span>
-                    <span class="tech-tag">DAX</span>
-                    <span class="tech-tag">Power Query</span>
-                </div>
-                <h3 class="project-title">Electronics Retail Performance Dashboard</h3>
-                <p>Developed a multi-page dashboard using DAX-driven logic, data aggregation & Power Query to analyze sales, churn, customers, subscriptions and engagement metrics.</p>
-                <a href="#" class="project-btn" onclick="alert('Project demo coming soon!')">
-                    <i class="fas fa-eye"></i> View Demo
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Impact Section -->
-    <section id="impact" class="section">
-        <h2 class="section-title">Professional Impact</h2>
-        <div class="impact-grid">
-            <div class="impact-card">
-                <div class="impact-number">100%</div>
-                <h3>Dataset Accuracy</h3>
-                <p>Collected, cleaned & validated client datasets ensuring perfect accuracy for strategic decision-making at Codenet Labs.</p>
-            </div>
-            <div class="impact-card">
-                <div class="impact-number">50%+</div>
-                <h3>Time Savings</h3>
-                <p>Automated Excel sheets & dashboards, cutting reporting time and enabling faster data-driven business insights.</p>
-            </div>
-            <div class="impact-card">
-                <div class="impact-number">3+</div>
-                <h3>Years Experience</h3>
-                <p>Business Analyst, Customer Service Rep, Web Development Intern across multiple Amman-based companies.</p>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="section" style="background: #f7fafc;">
-        <h2 class="section-title">Skills & Education</h2>
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h3 class="skill-title">Technical Expertise</h3>
-                <ul class="skills-list">
-                    <li class="skill-item"><span class="skill-name">MS Excel (Expert)</span></li>
-                    <li class="skill-item"><span class="skill-name">Power BI (Advanced)</span></li>
-                    <li class="skill-item"><span class="skill-name">SQL (Intermediate)</span></li>
-                    <li class="skill-item"><span class="skill-name">Python (Basic)</span></li>
-                    <li class="skill-item"><span class="skill-name">VBA Automation</span></li>
-                </ul>
+    <section id="skills" class="section skills-section">
+        <div class="container">
+            <h2 class="section-title">Skills & Tools</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <i class="fab fa-microsoft"></i>
+                        <h3>Excel</h3>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="95%"></div>
+                    </div>
+                    <span class="skill-level">Advanced</span>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <i class="fas fa-database"></i>
+                        <h3>SQL</h3>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="85%"></div>
+                    </div>
+                    <span class="skill-level">Intermediate-Advanced</span>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <i class="fas fa-chart-pie"></i>
+                        <h3>Power BI</h3>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="80%"></div>
+                    </div>
+                    <span class="skill-level">Intermediate</span>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <i class="fas fa-code"></i>
+                        <h3>VBA</h3>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="75%"></div>
+                    </div>
+                    <span class="skill-level">Intermediate</span>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <i class="fas fa-eye"></i>
+                        <h3>Data Visualization</h3>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="85%"></div>
+                    </div>
+                    <span class="skill-level">Advanced</span>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <i class="fas fa-magic"></i>
+                        <h3>Data Cleaning</h3>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="90%"></div>
+                    </div>
+                    <span class="skill-level">Advanced</span>
+                </div>
             </div>
-            <div class="skill-category">
-                <h3 class="skill-title">Education</h3>
-                <ul class="skills-list">
-                    <li class="skill-item"><strong>Bachelor's in MIS</strong><br>Al-Balqa Applied University<br>GPA: 3.69 (Excellent)</li>
-                    <li class="skill-item"><strong>Data Analysis Training</strong><br>Efe & Bridge (260 hrs)</li>
-                    <li class="skill-item"><strong>Google Data Analytics</strong><br>Professional Certificate (5/8)</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3 class="skill-title">Soft Skills</h3>
-                <ul class="skills-list">
-                    <li class="skill-item">Problem-solving</li>
-                    <li class="skill-item">Attention to Detail</li>
-                    <li class="skill-item">Analytical Thinking</li>
-                    <li class="skill-item">Critical Thinking</li>
-                    <li class="skill-item">Highly Organized</li>
-                </ul>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card" data-project="sales">
+                    <div class="project-image">
+                        <i class="fas fa-chart-area"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Sales Dashboard Analysis</h3>
+                        <p>Interactive Power BI dashboard tracking sales performance, customer churn, and revenue trends across multiple regions.</p>
+                        <div class="project-tags">
+                            <span>Power BI</span>
+                            <span>DAX</span>
+                            <span>SQL</span>
+                        </div>
+                        <button class="project-btn" onclick="openProject('sales')">
+                            View Details <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="project-card" data-project="excel">
+                    <div class="project-image">
+                        <i class="fas fa-file-excel"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Excel Automation Tool</h3>
+                        <p>VBA-powered reporting system with automated data processing, dynamic charts, and real-time KPI tracking.</p>
+                        <div class="project-tags">
+                            <span>Excel</span>
+                            <span>VBA</span>
+                            <span>Automation</span>
+                        </div>
+                        <button class="project-btn" onclick="openProject('excel')">
+                            View Details <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="project-card" data-project="sql">
+                    <div class="project-image">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>SQL Data Cleaning Project</h3>
+                        <p>Comprehensive data cleaning pipeline using complex SQL queries to prepare 100K+ records for analysis.</p>
+                        <div class="project-tags">
+                            <span>SQL</span>
+                            <span>Data Cleaning</span>
+                            <span>ETL</span>
+                        </div>
+                        <button class="project-btn" onclick="openProject('sql')">
+                            View Details <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="section">
-        <h2 class="section-title">Get In Touch
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>dareenalhajhasan@gmail.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+962 788543208</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <p>LinkedIn Profile</p>
+                    </div>
+                </div>
+                <form class="contact-form" onsubmit="submitContact(event)">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-btn" onclick="closeProject()">&times;</button>
+            </div>
+            <div id="projectDetails" class="project-details">
+                <!-- Project content loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
