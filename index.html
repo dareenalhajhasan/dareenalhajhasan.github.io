@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,272 +6,533 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dareen Al-Haj Hasan | Data Analyst</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e40af;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #64748b;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .nav-btn:hover {
+            color: #1e40af;
+            background: rgba(30, 64, 175, 0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content .subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: #475569;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content .statement {
+            font-size: 1.2rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(30, 64, 175, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.8);
+            color: #1e40af;
+            border: 2px solid #e2e8f0;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Sections */
+        .section {
+            padding: 100px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #475569;
+            line-height: 1.8;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+            border-top: 4px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            border-top-color: #3b82f6;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, #3b82f6, #1e40af);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+        }
+
+        .project-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tool-tag {
+            background: #e2e8f0;
+            color: #475569;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Impact Section */
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .impact-card {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .impact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #1e40af);
+        }
+
+        .impact-card h3 {
+            font-size: 1.5rem;
+            color: #1e3a8a;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .contact-item svg {
+            width: 24px;
+            height: 24px;
+            color: #3b82f6;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-buttons {
+                gap: 1rem;
+            }
+            
+            .nav-btn {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+            
+            .section {
+                padding: 80px 1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <div class="logo">
-                <a href="#home">Dareen</a>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="nav-logo">DA</div>
+            <div class="nav-buttons">
+                <button class="nav-btn" onclick="scrollToSection('home')">Home</button>
+                <button class="nav-btn" onclick="scrollToSection('about')">About</button>
+                <button class="nav-btn" onclick="scrollToSection('projects')">Projects</button>
+                <button class="nav-btn" onclick="scrollToSection('impact')">Impact</button>
+                <button class="nav-btn" onclick="scrollToSection('contact')">Contact</button>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title">Dareen Al-Haj Hasan</h1>
-                <h2 class="hero-subtitle">Data Analyst</h2>
-                <p class="hero-description">
-                    MIS Graduate passionate about turning complex data into actionable business insights. 
-                    Expert in Excel, SQL, Power BI, and data visualization.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="profile-card">
-                    <i class="fas fa-chart-line"></i>
-                </div>
+        <div class="hero-content fade-in">
+            <h1>Dareen Al-Haj Hasan</h1>
+            <div class="subtitle">Data Analyst | Turning Data into Strategic Business Insights</div>
+            <p class="statement">I transform raw data into actionable insights that drive organizational decision-making.</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary" onclick="scrollToSection('projects')">View Projects</a>
+                <a href="#contact" class="btn btn-secondary" onclick="scrollToSection('contact')">Contact Me</a>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        Management Information Systems graduate with excellent GPA (3.69). 
-                        I specialize in transforming raw data into strategic insights through advanced Excel automation, 
-                        SQL querying, and interactive Power BI dashboards.
-                    </p>
-                    <p>
-                        My goal is to help organizations make data-driven decisions that drive growth and efficiency.
-                    </p>
-                </div>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-broom"></i>
-                        </div>
-                        <h3>Data Cleaning</h3>
-                        <p>Transform messy datasets into reliable sources for analysis</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-chart-bar"></i>
-                        </div>
-                        <h3>Dashboard Creation</h3>
-                        <p>Build interactive visualizations for business stakeholders</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <h3>Business Insights</h3>
-                        <p>Deliver actionable recommendations from data analysis</p>
-                    </div>
-                </div>
-            </div>
+        <h2 class="section-title fade-in">About Me</h2>
+        <div class="about-content fade-in">
+            <p>As an MIS graduate with a strong analytical mindset, I specialize in transforming complex datasets into strategic business insights. My passion lies in data-driven decision making that creates measurable impact for organizations.</p>
         </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section skills-section">
-        <div class="container">
-            <h2 class="section-title">Skills & Tools</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-header">
-                        <i class="fab fa-microsoft"></i>
-                        <h3>Excel</h3>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="95%"></div>
-                    </div>
-                    <span class="skill-level">Advanced</span>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-header">
-                        <i class="fas fa-database"></i>
-                        <h3>SQL</h3>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="85%"></div>
-                    </div>
-                    <span class="skill-level">Intermediate-Advanced</span>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-header">
-                        <i class="fas fa-chart-pie"></i>
-                        <h3>Power BI</h3>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="80%"></div>
-                    </div>
-                    <span class="skill-level">Intermediate</span>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-header">
-                        <i class="fas fa-code"></i>
-                        <h3>VBA</h3>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="75%"></div>
-                    </div>
-                    <span class="skill-level">Intermediate</span>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-header">
-                        <i class="fas fa-eye"></i>
-                        <h3>Data Visualization</h3>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="85%"></div>
-                    </div>
-                    <span class="skill-level">Advanced</span>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-header">
-                        <i class="fas fa-magic"></i>
-                        <h3>Data Cleaning</h3>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="90%"></div>
-                    </div>
-                    <span class="skill-level">Advanced</span>
-                </div>
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <h3>Data Analysis & Insights</h3>
+                <p>Expert in extracting meaningful patterns from complex datasets using advanced statistical methods and visualization techniques.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <h3>Dashboard Development</h3>
+                <p>Creating interactive, executive-ready dashboards in Power BI that enable real-time business monitoring and decision-making.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <h3>Business Strategy Support</h3>
+                <p>Partnering with leadership teams to align data insights with strategic objectives and performance optimization.</p>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card" data-project="sales">
-                    <div class="project-image">
-                        <i class="fas fa-chart-area"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Sales Dashboard Analysis</h3>
-                        <p>Interactive Power BI dashboard tracking sales performance, customer churn, and revenue trends across multiple regions.</p>
-                        <div class="project-tags">
-                            <span>Power BI</span>
-                            <span>DAX</span>
-                            <span>SQL</span>
-                        </div>
-                        <button class="project-btn" onclick="openProject('sales')">
-                            View Details <i class="fas fa-arrow-right"></i>
-                        </button>
+        <h2 class="section-title fade-in">Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card fade-in" onclick="openProjectModal('sales')">
+                <div class="project-image">📊</div>
+                <div class="project-content">
+                    <h3>Sales Performance Dashboard</h3>
+                    <p>Comprehensive Power BI dashboard tracking sales KPIs across multiple regions with drill-down capabilities and forecasting.</p>
+                    <div class="project-tools">
+                        <span class="tool-tag">Power BI</span>
+                        <span class="tool-tag">SQL</span>
+                        <span class="tool-tag">DAX</span>
                     </div>
                 </div>
-                <div class="project-card" data-project="excel">
-                    <div class="project-image">
-                        <i class="fas fa-file-excel"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Excel Automation Tool</h3>
-                        <p>VBA-powered reporting system with automated data processing, dynamic charts, and real-time KPI tracking.</p>
-                        <div class="project-tags">
-                            <span>Excel</span>
-                            <span>VBA</span>
-                            <span>Automation</span>
-                        </div>
-                        <button class="project-btn" onclick="openProject('excel')">
-                            View Details <i class="fas fa-arrow-right"></i>
-                        </button>
+            </div>
+            <div class="project-card fade-in" onclick="openProjectModal('sql')">
+                <div class="project-image">🗄️</div>
+                <div class="project-content">
+                    <h3>SQL Data Cleaning Project</h3>
+                    <p>Optimized 2M+ row customer database through advanced SQL queries, reducing processing time by 85%.</p>
+                    <div class="project-tools">
+                        <span class="tool-tag">SQL</span>
+                        <span class="tool-tag">PostgreSQL</span>
+                        <span class="tool-tag">Python</span>
                     </div>
                 </div>
-                <div class="project-card" data-project="sql">
-                    <div class="project-image">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>SQL Data Cleaning Project</h3>
-                        <p>Comprehensive data cleaning pipeline using complex SQL queries to prepare 100K+ records for analysis.</p>
-                        <div class="project-tags">
-                            <span>SQL</span>
-                            <span>Data Cleaning</span>
-                            <span>ETL</span>
-                        </div>
-                        <button class="project-btn" onclick="openProject('sql')">
-                            View Details <i class="fas fa-arrow-right"></i>
-                        </button>
+            </div>
+            <div class="project-card fade-in" onclick="openProjectModal('excel')">
+                <div class="project-image">📈</div>
+                <div class="project-content">
+                    <h3>Excel Automation System</h3>
+                    <p>VBA-powered financial reporting system automating monthly consolidations for 15+ business units.</p>
+                    <div class="project-tools">
+                        <span class="tool-tag">Excel</span>
+                        <span class="tool-tag">VBA</span>
+                        <span class="tool-tag">Power Query</span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="section">
+        <h2 class="section-title fade-in">Impact of Data</h2>
+        <div class="about-content fade-in">
+            <p>Data analysis transforms organizations by providing clarity in complexity. My work empowers executives with real-time insights, optimizes operational efficiency, and drives strategic growth.</p>
+        </div>
+        <div class="impact-grid">
+            <div class="impact-card fade-in">
+                <h3>Operational Efficiency</h3>
+                <p>Streamlined processes reduced reporting time by 70%, enabling teams to focus on strategic priorities rather than manual data work.</p>
+            </div>
+            <div class="impact-card fade-in">
+                <h3>Strategic Decision Making</h3>
+                <p>Executive dashboards provided C-suite with instant visibility into key metrics, accelerating decision cycles by 50%.</p>
+            </div>
+            <div class="impact-card fade-in">
+                <h3>Business Performance</h3>
+                <p>Data-driven optimizations identified $2.4M in annual savings through targeted performance improvements.</p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <p>dareenalhajhasan@gmail.com</p>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <p>+962 788543208</p>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        <p>LinkedIn Profile</p>
-                    </div>
-                </div>
-                <form class="contact-form" onsubmit="submitContact(event)">
-                    <div class="form-group">
-                        <input type="text" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Your Message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Project Modal -->
-    <div id="projectModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button class="close-btn" onclick="closeProject()">&times;</button>
-            </div>
-            <div id="projectDetails" class="project-details">
-                <!-- Project content loaded here -->
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
+        <h2 class="section-title fade-in">Contact</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.27 7.27c.883.883 2.317.883 3.2 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    <div>
+                        <div style="font-weight: 600; color: #1e3a8a
