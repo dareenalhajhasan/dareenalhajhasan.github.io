@@ -1,188 +1,189 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dareen Al-Haj Hasan | Strategic Data Analyst</title>
+    <title>Dareen Al-Haj Hasan | Strategic Data Architect</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2563eb;
-            --secondary: #0f172a;
-            --accent: #f8fafc;
-            --text-main: #334155;
+            --primary: #0f172a;
+            --accent-blue: #3b82f6;
+            --accent-mint: #10b981;
+            --bg-canvas: #f8fafc;
+            --border-subtle: #e2e8f0;
+            --panel-bg: #ffffff;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-main);
-            background-color: #ffffff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--primary);
+            background-color: var(--bg-canvas);
             scroll-behavior: smooth;
+            padding-bottom: 5rem;
         }
 
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--secondary);
+        /* Presentation Deck Styling */
+        .deck-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        .panel {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
         }
 
-        .hero-gradient {
-            background: radial-gradient(circle at top right, #eff6ff 0%, #ffffff 100%);
+        .panel:hover {
+            border-color: #cbd5e1;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
         }
 
-        .project-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #f1f5f9;
+        .nav-link {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
         }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+        .nav-link:hover {
+            background: #f1f5f9;
+            color: var(--accent-blue);
         }
 
-        .data-dot {
+        /* Custom Data Viz Elements */
+        .sparkline {
+            height: 40px;
+            width: 80px;
+            display: flex;
+            align-items: flex-end;
+            gap: 2px;
+        }
+        .spark-bar {
+            width: 4px;
+            background: var(--accent-blue);
+            border-radius: 1px;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Section Heading Labels */
+        .section-label {
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #94a3b8;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .section-label::before {
+            content: '';
             width: 8px;
             height: 8px;
-            background: var(--primary);
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 10px;
+            background: var(--accent-blue);
+            border-radius: 2px;
         }
 
-        .impact-metric {
-            border-left: 3px solid var(--primary);
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f5f9;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 4px;
+        /* Glassmorphism Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-subtle);
         }
     </style>
 </head>
 <body>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-nav">
-        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="text-xl font-bold tracking-tight text-slate-900">
-                Dareen Al-Haj Hasan<span class="text-blue-600"></span>
+    <nav class="fixed top-0 w-full z-50">
+        <div class="deck-container h-20 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <div class="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center text-white font-bold">D</div>
+                <div>
+                    <div class="text-sm font-extrabold tracking-tight">DAREEN AL-HAJ HASAN</div>
+                    <div class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Strategy • Data • Effect</div>
+                </div>
             </div>
             
-            <div class="hidden md:flex space-x-8 items-center">
-                <button onclick="scrollToSection('home')" class="text-sm font-medium hover:text-blue-600 transition">Home</button>
-                <button onclick="scrollToSection('about')" class="text-sm font-medium hover:text-blue-600 transition">About</button>
-                <button onclick="scrollToSection('projects')" class="text-sm font-medium hover:text-blue-600 transition">Projects</button>
-                <button onclick="scrollToSection('impact')" class="text-sm font-medium hover:text-blue-600 transition">Impact</button>
-                <button onclick="scrollToSection('contact')" class="px-5 py-2 bg-slate-900 text-white rounded-full text-sm font-medium hover:bg-blue-600 transition">Contact</button>
+            <div class="hidden md:flex items-center gap-2">
+                <button onclick="scrollToSection('home')" class="nav-link">Home</button>
+                <button onclick="scrollToSection('about')" class="nav-link">About</button>
+                <button onclick="scrollToSection('projects')" class="nav-link">Projects</button>
+                <button onclick="scrollToSection('impact')" class="nav-link">Impact</button>
+                <div class="w-[1px] h-6 bg-slate-200 mx-2"></div>
+                <button onclick="scrollToSection('contact')" class="px-6 py-2 bg-blue-600 text-white rounded-lg text-xs font-bold uppercase tracking-widest hover:bg-slate-900 transition duration-300 shadow-lg shadow-blue-100">Inquiry</button>
             </div>
-
-            <!-- Mobile Menu Toggle -->
-            <button class="md:hidden" id="menuBtn">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center pt-20 hero-gradient">
-        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <span class="inline-block px-3 py-1 bg-blue-50 text-blue-600 text-xs font-bold tracking-widest uppercase rounded mb-4">Strategic Data Analyst</span>
-                <h1 class="text-5xl md:text-7xl mb-6 leading-tight">Translating Data into <span class="italic text-blue-600">Organizational Impact.</span></h1>
-                <p class="text-lg text-slate-600 mb-8 max-w-lg leading-relaxed">
-                    I am Dareen Al-Haj Hasan. I specialize in bridging the gap between complex datasets and high-level business strategy to drive measurable growth.
-                </p>
-                <div class="flex space-x-4">
-                    <button onclick="scrollToSection('projects')" class="px-8 py-4 bg-slate-900 text-white rounded-lg font-semibold hover:bg-blue-600 transition shadow-lg">View My Work</button>
-                    <button onclick="scrollToSection('about')" class="px-8 py-4 border border-slate-200 rounded-lg font-semibold hover:bg-slate-50 transition">My Approach</button>
-                </div>
-            </div>
-            <div class="relative hidden md:block">
-                <!-- Abstract Data Visualization Decor -->
-                <div class="w-full aspect-square bg-white rounded-2xl shadow-2xl p-8 flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <div class="h-4 w-3/4 bg-slate-100 rounded"></div>
-                        <div class="h-4 w-1/2 bg-slate-100 rounded"></div>
+    <!-- Header / Hero Section -->
+    <section id="home" class="pt-32 pb-20">
+        <div class="deck-container">
+            <div class="grid lg:grid-cols-12 gap-6">
+                <!-- Hero Main -->
+                <div class="lg:col-span-8 panel flex flex-col justify-between min-h-[400px] reveal">
+                    <div class="section-label">Executive Brief</div>
+                    <div>
+                        <h1 class="text-5xl md:text-7xl font-extrabold leading-[1.1] mb-6">
+                            Driving <span class="text-blue-600">Organizational Evolution</span> through deep data analysis.
+                        </h1>
+                        <p class="text-slate-500 text-lg max-w-xl">
+                            Specializing in the nexus between data science and corporate strategy. Translating raw telemetry into high-level executive direction.
+                        </p>
                     </div>
-                    <div class="flex items-end space-x-2 h-48">
-                        <div class="w-1/4 bg-blue-100 h-20 rounded-t"></div>
-                        <div class="w-1/4 bg-blue-300 h-32 rounded-t"></div>
-                        <div class="w-1/4 bg-blue-500 h-48 rounded-t"></div>
-                        <div class="w-1/4 bg-blue-600 h-40 rounded-t"></div>
+                    <div class="flex gap-4 mt-8">
+                        <button onclick="scrollToSection('projects')" class="bg-slate-900 text-white px-8 py-3 rounded-lg font-bold text-sm">View Portfolios</button>
+                        <button onclick="scrollToSection('impact')" class="border border-slate-200 px-8 py-3 rounded-lg font-bold text-sm hover:bg-slate-50">View Impact Metrics</button>
                     </div>
                 </div>
-                <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-blue-50 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
-            </div>
-        </div>
-    </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-24 bg-white">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-16">
-                <div>
-                    <h2 class="text-3xl font-bold mb-6">Strategy-First Analysis</h2>
-                    <p class="text-slate-600 mb-6 leading-relaxed">
-                        In an era of data abundance, the real challenge isn't collecting numbers—it's understanding which numbers matter. With a background deeply rooted in organizational strategy, I don't just build dashboards; I build tools for decision-making.
-                    </p>
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <span class="data-dot mt-2"></span>
+                <!-- Live Status Sidebar -->
+                <div class="lg:col-span-4 space-y-6">
+                    <div class="panel reveal" style="transition-delay: 100ms">
+                        <div class="flex justify-between items-start mb-6">
                             <div>
-                                <h4 class="font-bold text-slate-900">Data Architecture</h4>
-                                <p class="text-sm text-slate-500">Designing data structures that align with KPI frameworks.</p>
+                                <div class="text-xs font-bold text-slate-400 uppercase">Current Focus</div>
+                                <div class="text-lg font-bold">Predictive ROI Modeling</div>
                             </div>
+                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
                         </div>
-                        <div class="flex items-start">
-                            <span class="data-dot mt-2"></span>
-                            <div>
-                                <h4 class="font-bold text-slate-900">Predictive Modeling</h4>
-                                <p class="text-sm text-slate-500">Forecasting trends to mitigate risk and capture opportunities.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <span class="data-dot mt-2"></span>
-                            <div>
-                                <h4 class="font-bold text-slate-900">Executive Storytelling</h4>
-                                <p class="text-sm text-slate-500">Visualizing complex findings for boardroom-level clarity.</p>
-                            </div>
+                        <div class="sparkline">
+                            <div class="spark-bar" style="height: 40%"></div>
+                            <div class="spark-bar" style="height: 60%"></div>
+                            <div class="spark-bar" style="height: 50%"></div>
+                            <div class="spark-bar" style="height: 80%"></div>
+                            <div class="spark-bar" style="height: 70%"></div>
+                            <div class="spark-bar" style="height: 90%"></div>
+                            <div class="spark-bar" style="height: 75%"></div>
                         </div>
                     </div>
-                </div>
-                <div class="bg-slate-50 p-10 rounded-2xl">
-                    <h3 class="text-xl font-bold mb-8">Core Expertise</h3>
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="p-4 bg-white rounded-lg shadow-sm">
-                            <p class="text-xs text-blue-600 font-bold mb-1">TOOLS</p>
-                            <p class="text-sm font-medium">SQL, Python, R</p>
-                        </div>
-                        <div class="p-4 bg-white rounded-lg shadow-sm">
-                            <p class="text-xs text-blue-600 font-bold mb-1">VISUALS</p>
-                            <p class="text-sm font-medium">Power BI, Tableau</p>
-                        </div>
-                        <div class="p-4 bg-white rounded-lg shadow-sm">
-                            <p class="text-xs text-blue-600 font-bold mb-1">STRATEGY</p>
-                            <p class="text-sm font-medium">SWOT Analysis, MBO</p>
-                        </div>
-                        <div class="p-4 bg-white rounded-lg shadow-sm">
-                            <p class="text-xs text-blue-600 font-bold mb-1">PROCESS</p>
-                            <p class="text-sm font-medium">ETL Pipelines, Clean Room</p>
+                    <div class="panel reveal" style="transition-delay: 200ms">
+                        <div class="text-xs font-bold text-slate-400 uppercase mb-2">Technical Core</div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-slate-100 rounded text-[10px] font-bold uppercase">Python (Pandas)</span>
+                            <span class="px-2 py-1 bg-slate-100 rounded text-[10px] font-bold uppercase">SQL (PostgreSQL)</span>
+                            <span class="px-2 py-1 bg-slate-100 rounded text-[10px] font-bold uppercase">Tableau / PowerBI</span>
+                            <span class="px-2 py-1 bg-slate-100 rounded text-[10px] font-bold uppercase">Regression Analysis</span>
                         </div>
                     </div>
                 </div>
@@ -190,138 +191,141 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-24 bg-slate-50">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-                <div>
-                    <h2 class="text-4xl font-bold mb-4">Selected Case Studies</h2>
-                    <p class="text-slate-600">A collection of projects where data met design and strategy.</p>
+    <!-- About Section - Modular Grid -->
+    <section id="about" class="py-20 bg-slate-50/50 border-y border-slate-200">
+        <div class="deck-container">
+            <div class="section-label mb-12">Methodology & Framework</div>
+            <div class="grid md:grid-cols-3 gap-6 reveal">
+                <div class="panel">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Structural Analysis</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">Auditing organizational data pipelines to identify bottlenecks and misalignment with corporate KPIs.</p>
                 </div>
-                <div class="text-blue-600 font-medium cursor-pointer flex items-center hover:translate-x-2 transition">
-                    View full archive <span class="ml-2">→</span>
+                <div class="panel">
+                    <div class="w-12 h-12 bg-mint-50 text-emerald-600 rounded-xl flex items-center justify-center mb-6" style="background-color: #ecfdf5;">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Strategic Impact</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">Every insight is stress-tested against business objectives. I prioritize analysis that drives direct bottom-line effects.</p>
+                </div>
+                <div class="panel">
+                    <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Visual Narratives</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">Translating complex multi-variate correlations into intuitive dashboards for executive boardroom decision-making.</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="project-card bg-white p-6 rounded-xl">
-                    <div class="h-48 bg-slate-100 rounded-lg mb-6 flex items-center justify-center text-slate-300">
-                        <!-- Dashboard Mockup Concept -->
-                        <svg class="w-20 h-20" fill="currentColor" viewBox="0 0 24 24"><path d="M5 19h14V5H5v14zm2-12h10v10H7V7z"/></svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Revenue Optimization Engine</h3>
-                    <p class="text-sm text-slate-500 mb-4">Using linear regression to identify underperforming regions and optimize pricing strategies.</p>
-                    <div class="flex gap-2">
-                        <span class="text-[10px] px-2 py-1 bg-blue-50 text-blue-700 rounded uppercase font-bold">Python</span>
-                        <span class="text-[10px] px-2 py-1 bg-blue-50 text-blue-700 rounded uppercase font-bold">PowerBI</span>
+    <!-- Projects - Data Deck Style -->
+    <section id="projects" class="py-20">
+        <div class="deck-container">
+            <div class="section-label mb-12">Case Folio</div>
+            <div class="grid lg:grid-cols-2 gap-6">
+                <!-- Project Item -->
+                <div class="panel group cursor-pointer reveal">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="w-full md:w-1/3 bg-slate-50 rounded-lg p-6 flex items-center justify-center overflow-hidden">
+                             <div class="w-full flex items-end gap-1 h-32">
+                                <div class="w-2 bg-blue-100 h-1/2 rounded-full"></div>
+                                <div class="w-2 bg-blue-200 h-2/3 rounded-full"></div>
+                                <div class="w-2 bg-blue-400 h-1/3 rounded-full"></div>
+                                <div class="w-2 bg-blue-600 h-full rounded-full group-hover:animate-bounce"></div>
+                                <div class="w-2 bg-blue-400 h-4/5 rounded-full"></div>
+                             </div>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <div class="text-[10px] font-extrabold text-blue-600 uppercase mb-2 tracking-widest">Efficiency Strategy</div>
+                            <h3 class="text-2xl font-bold mb-4 group-hover:text-blue-600 transition">Market Saturation Analysis</h3>
+                            <p class="text-sm text-slate-500 mb-6">Quantifying the point of diminishing returns for ad-spend across 14 European markets for a top-tier fintech.</p>
+                            <div class="flex gap-2">
+                                <span class="text-[9px] font-bold px-2 py-1 bg-slate-100 rounded">R-Studio</span>
+                                <span class="text-[9px] font-bold px-2 py-1 bg-slate-100 rounded">SQL</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- Project 2 -->
-                <div class="project-card bg-white p-6 rounded-xl">
-                    <div class="h-48 bg-slate-100 rounded-lg mb-6 flex items-center justify-center text-slate-300">
-                        <svg class="w-20 h-20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Customer Churn Dynamics</h3>
-                    <p class="text-sm text-slate-500 mb-4">Behavioral analysis that reduced subscription churn by 18% through predictive intervention.</p>
-                    <div class="flex gap-2">
-                        <span class="text-[10px] px-2 py-1 bg-blue-50 text-blue-700 rounded uppercase font-bold">SQL</span>
-                        <span class="text-[10px] px-2 py-1 bg-blue-50 text-blue-700 rounded uppercase font-bold">Tableau</span>
-                    </div>
-                </div>
-                <!-- Project 3 -->
-                <div class="project-card bg-white p-6 rounded-xl">
-                    <div class="h-48 bg-slate-100 rounded-lg mb-6 flex items-center justify-center text-slate-300">
-                        <svg class="w-20 h-20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Supply Chain Efficiency</h3>
-                    <p class="text-sm text-slate-500 mb-4">Interactive logistics dashboard for real-time tracking of global inventory and strategic bottlenecks.</p>
-                    <div class="flex gap-2">
-                        <span class="text-[10px] px-2 py-1 bg-blue-50 text-blue-700 rounded uppercase font-bold">R</span>
-                        <span class="text-[10px] px-2 py-1 bg-blue-50 text-blue-700 rounded uppercase font-bold">Azure</span>
+
+                <!-- Project Item 2 -->
+                <div class="panel group cursor-pointer reveal" style="transition-delay: 100ms">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="w-full md:w-1/3 bg-slate-50 rounded-lg p-6 flex items-center justify-center overflow-hidden">
+                             <div class="grid grid-cols-2 gap-2 w-full">
+                                <div class="h-10 bg-emerald-100 rounded"></div>
+                                <div class="h-10 bg-slate-100 rounded"></div>
+                                <div class="h-10 bg-slate-100 rounded"></div>
+                                <div class="h-10 bg-emerald-400 rounded"></div>
+                             </div>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <div class="text-[10px] font-extrabold text-blue-600 uppercase mb-2 tracking-widest">Revenue Growth</div>
+                            <h3 class="text-2xl font-bold mb-4 group-hover:text-blue-600 transition">Customer Lifetime Optimization</h3>
+                            <p class="text-sm text-slate-500 mb-6">Using Bayesian modeling to predict user churn before it happens, resulting in a 12% retention lift.</p>
+                            <div class="flex gap-2">
+                                <span class="text-[9px] font-bold px-2 py-1 bg-slate-100 rounded">Python</span>
+                                <span class="text-[9px] font-bold px-2 py-1 bg-slate-100 rounded">Tableau</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Impact Section -->
-    <section id="impact" class="py-24 bg-white">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4">The Strategic Effect</h2>
-                <p class="text-slate-500 max-w-xl mx-auto">Tangible outcomes of embedding data intelligence into organizational culture.</p>
+    <!-- Impact Section - PowerPoint Pitch Style -->
+    <section id="impact" class="py-20 bg-slate-900 text-white rounded-[2rem] mx-4 md:mx-8">
+        <div class="deck-container">
+            <div class="section-label mb-16 text-slate-500">Key Performance Indicators</div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="reveal">
+                    <div class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">Avg. OpEx Reduction</div>
+                    <div class="text-6xl font-extrabold text-white mb-2">34<span class="text-blue-500">%</span></div>
+                    <p class="text-xs text-slate-400">Identified via process data mining</p>
+                </div>
+                <div class="reveal" style="transition-delay: 100ms">
+                    <div class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">ROI Growth</div>
+                    <div class="text-6xl font-extrabold text-white mb-2">2.4<span class="text-blue-500">x</span></div>
+                    <p class="text-xs text-slate-400">Yield on strategic analytics spend</p>
+                </div>
+                <div class="reveal" style="transition-delay: 200ms">
+                    <div class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">Data Governance</div>
+                    <div class="text-6xl font-extrabold text-white mb-2">100<span class="text-blue-500">%</span></div>
+                    <p class="text-xs text-slate-400">Clean room implementation success</p>
+                </div>
+                <div class="reveal" style="transition-delay: 300ms">
+                    <div class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">Decision Velocity</div>
+                    <div class="text-6xl font-extrabold text-white mb-2">18<span class="text-blue-500">d</span></div>
+                    <p class="text-xs text-slate-400">Decrease in quarterly report time</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact - Final Panel -->
+    <section id="contact" class="py-32">
+        <div class="deck-container max-w-4xl">
+            <div class="panel text-center p-20 reveal">
+                <div class="section-label justify-center mb-8">Next Step</div>
+                <h2 class="text-5xl font-extrabold mb-8">Ready to evolve your data strategy?</h2>
+                <p class="text-slate-500 mb-12 max-w-lg mx-auto">Available for strategic consulting and lead analysis roles. Let's discuss how data can transform your organization.</p>
+                <div class="flex flex-col md:flex-row justify-center gap-4">
+                    <a href="mailto:dareen.alhajhasan@example.com" class="px-10 py-4 bg-blue-600 text-white rounded-xl font-bold hover:bg-slate-900 transition">Email Dareen</a>
+                    <a href="#" class="px-10 py-4 border border-slate-200 rounded-xl font-bold hover:bg-slate-50 transition">LinkedIn Profile</a>
+                </div>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="impact-metric pl-6 py-4">
-                    <div class="text-4xl font-bold text-blue-600 mb-1">22%</div>
-                    <p class="text-sm font-bold text-slate-900 uppercase tracking-wide">Efficiency Gain</p>
-                    <p class="text-xs text-slate-500">In operational workflows through automated reporting.</p>
+            <footer class="mt-20 flex justify-between items-center text-[10px] font-extrabold text-slate-400 uppercase tracking-widest">
+                <div>© 2024 Dareen Al-Haj Hasan</div>
+                <div class="flex gap-6">
+                    <a href="#">Analysis Ethics</a>
+                    <a href="#">Methodology</a>
                 </div>
-                <div class="impact-metric pl-6 py-4">
-                    <div class="text-4xl font-bold text-blue-600 mb-1">$1.4M</div>
-                    <p class="text-sm font-bold text-slate-900 uppercase tracking-wide">Cost Reduction</p>
-                    <p class="text-xs text-slate-500">Identified through variance analysis and process auditing.</p>
-                </div>
-                <div class="impact-metric pl-6 py-4">
-                    <div class="text-4xl font-bold text-blue-600 mb-1">50+</div>
-                    <p class="text-sm font-bold text-slate-900 uppercase tracking-wide">Dashboards Built</p>
-                    <p class="text-xs text-slate-500">Empowering cross-departmental teams with data self-service.</p>
-                </div>
-                <div class="impact-metric pl-6 py-4">
-                    <div class="text-4xl font-bold text-blue-600 mb-1">98%</div>
-                    <p class="text-sm font-bold text-slate-900 uppercase tracking-wide">Data Accuracy</p>
-                    <p class="text-xs text-slate-500">Maintained through robust ETL validation protocols.</p>
-                </div>
-            </div>
+            </footer>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 bg-slate-900 text-white rounded-t-[3rem]">
-        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16">
-            <div>
-                <h2 class="text-4xl font-bold mb-6 text-white">Let's Discuss Strategy</h2>
-                <p class="text-slate-400 mb-8 leading-relaxed">
-                    Whether you have a data challenge or need a strategic roadmap for your organization's data culture, I'm open to discussing how we can work together.
-                </p>
-                <div class="space-y-4">
-                    <div class="flex items-center space-x-4">
-                        <div class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                        </div>
-                        <span class="text-slate-300">dareen.alhajhasan@example.com</span>
-                    </div>
-                    <div class="flex items-center space-x-4">
-                        <div class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                        </div>
-                        <span class="text-slate-300">LinkedIn: dareenalhajhasan</span>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white p-8 rounded-2xl">
-                <form class="space-y-4">
-                    <div>
-                        <label class="block text-slate-700 text-sm font-bold mb-2">Name</label>
-                        <input type="text" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="John Doe">
-                    </div>
-                    <div>
-                        <label class="block text-slate-700 text-sm font-bold mb-2">Email</label>
-                        <input type="email" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="john@company.com">
-                    </div>
-                    <div>
-                        <label class="block text-slate-700 text-sm font-bold mb-2">Message</label>
-                        <textarea rows="4" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Tell me about your project..."></textarea>
-                    </div>
-                    <button class="w-full py-4 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 transition shadow-xl">Send Inquiry</button>
-                </form>
-            </div>
-        </div>
-        <footer class="max-w-6xl mx-auto px-6 py-12 mt-12 border-t border-slate-800 text-center text-slate-500 text-sm">
-            &copy; 2024 Dareen Al-Haj Hasan. Built with precision and purpose.
-        </footer>
     </section>
 
     <script>
@@ -330,39 +334,38 @@
             const section = document.getElementById(sectionId);
             if (section) {
                 window.scrollTo({
-                    top: section.offsetTop - 80, // Offset for navigation height
+                    top: section.offsetTop - 100,
                     behavior: 'smooth'
                 });
             }
         }
 
-        // Mobile menu toggle (simple version)
-        const menuBtn = document.getElementById('menuBtn');
-        menuBtn.addEventListener('click', () => {
-            // In a real app, you'd show a mobile menu overlay here
-            alert("Mobile menu functionality would expand here.");
-        });
-
-        // Intersection Observer for fade-in effects on scroll
+        // Scroll Reveal Animation (Deck Entry Style)
         const observerOptions = {
-            threshold: 0.1
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('opacity-100');
-                    entry.target.classList.remove('opacity-0');
-                    entry.target.classList.add('translate-y-0');
-                    entry.target.classList.remove('translate-y-10');
+                    entry.target.classList.add('active');
                 }
             });
         }, observerOptions);
 
-        // Apply initial hidden states and observe elements
-        document.querySelectorAll('section > div').forEach(div => {
-            div.classList.add('transition', 'duration-1000', 'ease-out', 'opacity-0', 'translate-y-10');
-            observer.observe(div);
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Dynamically add sparkline bars
+        document.querySelectorAll('.sparkline').forEach(spark => {
+            if (spark.children.length === 0) {
+                for (let i = 0; i < 15; i++) {
+                    const bar = document.createElement('div');
+                    bar.className = 'spark-bar';
+                    bar.style.height = Math.floor(Math.random() * 80 + 20) + '%';
+                    spark.appendChild(bar);
+                }
+            }
         });
     </script>
 </body>
