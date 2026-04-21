@@ -1333,9 +1333,36 @@
         }
 
         .subscribe-input-group .btn {
-            border-radius: 12px;
-            padding: 12px 28px;
-        }
+    /* 1. زيادة الارتفاع من خلال الـ padding (الرقم الأول للارتفاع) */
+    padding: 15px 28px; 
+    
+    /* 2. جعل الزوايا حادة جداً */
+    border-radius: 10px !important; 
+    
+    /* 3. عشان تتأكدي إنها ماخدة عرض الحقل اللي فوقها */
+    width: 100%;
+    
+    /* إذا لسا في إطار مزعج، هذا السطر بيلغيه */
+    border: none; 
+}
+
+.subscribe-input-group textarea {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 14px 18px;
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--text-primary);
+    outline: none;
+    min-width: 0;
+    resize: none; 
+    min-height: 150px;
+}
+
+.subscribe-input-group textarea::placeholder {
+    color: var(--text-muted);
+}
 
         .subscribe-meta {
             margin-top: 20px;
@@ -1616,6 +1643,230 @@
             @keyframes panelIn { from { opacity: 1; transform: none; } }
         }
 
+                .page-header {
+            padding: 160px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 500px;
+            background: radial-gradient(circle at center,
+                rgba(255, 107, 107, 0.10) 0%,
+                rgba(255, 107, 107, 0.03) 35%,
+                transparent 55%);
+            pointer-events: none;
+        }
+
+        .page-header::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+            background-size: 80px 80px;
+            mask-image: radial-gradient(ellipse at 50% 40%, black 20%, transparent 65%);
+            -webkit-mask-image: radial-gradient(ellipse at 50% 40%, black 20%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .page-header > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header .section-desc {
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .breadcrumb a {
+            color: var(--text-muted);
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--text-primary);
+        }
+
+        .breadcrumb .bc-sep {
+            opacity: 0.4;
+        }
+
+        /* Templates grid */
+        .templates-section {
+            padding: 0 0 120px;
+        }
+
+        .templates-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .template-card {
+            background: var(--surface-1);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .template-card::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 16px;
+            padding: 1px;
+            background: linear-gradient(135deg,
+                rgba(255, 107, 107, 0.3),
+                transparent 40%,
+                transparent 60%,
+                rgba(255, 107, 107, 0.15));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .template-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .template-card:hover::before {
+            opacity: 1;
+        }
+
+        .template-thumb {
+            position: relative;
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            background: var(--surface-2);
+        }
+
+        .template-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            transition: transform 0.5s ease;
+        }
+
+        .template-card:hover .template-thumb img {
+            transform: scale(1.04);
+        }
+
+        .template-thumb-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 10, 16, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .template-card:hover .template-thumb-overlay {
+            opacity: 1;
+        }
+
+        .template-thumb-overlay .btn {
+            font-size: 12.5px;
+            padding: 8px 18px;
+        }
+
+        .template-info {
+            padding: 20px 22px 22px;
+        }
+
+        .template-number {
+            font-size: 11px;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent);
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            margin-bottom: 6px;
+        }
+
+        .template-name {
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 8px;
+        }
+
+        .template-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .template-tags {
+            display: flex;
+            gap: 6px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
+
+        .template-tag {
+            font-size: 10.5px;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-muted);
+            background: var(--surface-2);
+            border: 1px solid var(--border-subtle);
+            padding: 3px 10px;
+            border-radius: 100px;
+            letter-spacing: 0.02em;
+        }
+
+        .browse-more {
+            text-align: center;
+            margin-top: 56px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .templates-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 130px 0 60px;
+            }
+
+            .templates-grid {
+                grid-template-columns: 1fr;
+                max-width: 480px;
+                margin: 0 auto;
+            }
+        }
     </style>
 <!--
 
@@ -1636,8 +1887,8 @@ https://templatemo.com/tm-614-quantix-saas
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#features">About</a></li>
-                <li><a href="#pricing">Projects</a></li>
-                <li><a href="#" onclick="return false;">Contact</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
                 <li class="nav-mobile-actions">
                     <a href="#" class="btn btn-primary" onclick="return false;">Get in Touch</a>
                 </li>
@@ -1947,109 +2198,94 @@ https://templatemo.com/tm-614-quantix-saas
     </section>
 
     <!-- PRICING -->
-    <section class="section pricing-section" id="pricing">
+    <section class="section pricing-section" id="projects">
         <div class="container">
             <div class="section-header fade-up">
-                <p class="section-label">Pricing</p>
-                <h2 class="section-title">Start free. Scale as you grow.</h2>
-                <p class="section-desc">No credit card required. Upgrade, downgrade, or cancel anytime.</p>
+                <p class="section-label">Data-Driven Projects</p>
+                <h2 class="section-title">From raw numbers to visual stories</h2>
+                <p class="section-desc">Explore how data transforms into actionable business decisions.</p>
             </div>
+ <!-- TEMPLATES GRID -->
+    <section class="templates-section">
+        <div class="container">
+            <div class="templates-grid">
 
-            <div class="pricing-toggle-wrap fade-up">
-                <span class="pricing-toggle-label active" id="monthlyLabel">Monthly</span>
-                <button class="pricing-toggle" id="pricingToggle" aria-label="Toggle pricing period"></button>
-                <span class="pricing-toggle-label" id="annualLabel">Annually</span>
-                <span class="pricing-save">Save 30%</span>
-            </div>
+                <!-- 611 Maison Doree -->
+                <div class="template-card fade-up">
+                    <div class="template-thumb">
+                        <img src="Powerbi.png" alt="Power BI Project" loading="lazy">
+                        <div class="template-thumb-overlay">
+                            <a href="https://templatemo.com/live/templatemo_611_maison_doree" class="btn btn-primary" target="_blank" rel="noopener">Preview Project</a>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <div class="template-number">DASHBOARD</div>
+                        <h3 class="template-name">Retail Performance</h3>
+                        <p class="template-desc">Interactive Power BI solutions designed to bridge the gap between complex data and executive decision-making. Featuring dynamic DAX logic and automated reporting workflows.</p>
+                        <div class="template-tags">
+                            <span class="template-tag">Data Storytelling</span>
+                            <span class="template-tag">Business Intelligence</span>
+                            <span class="template-tag">Performance Metrics</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 607 Glass Admin -->
+                <div class="template-card fade-up">
+                    <div class="template-thumb">
+                        <img src="project1.png" alt="Excel Project" loading="lazy">
+                        <div class="template-thumb-overlay">
+                            <a href="https://templatemo.com/live/templatemo_607_glass_admin" class="btn btn-primary" target="_blank" rel="noopener">Preview Project</a>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <div class="template-number">AUTOMATION</div>
+                        <h3 class="template-name">Financial Manager</h3>
+                        <p class="template-desc">A robust automation tool engineered to streamline complex workflows. Built with advanced VBA logic and dynamic Excel structures to eliminate manual data entry and ensure 100% accuracy.</p>
+                        <div class="template-tags">
+                            <span class="template-tag">Workflow Optimization</span>
+                            <span class="template-tag">VBA Engine</span>
+                            <span class="template-tag">Data Integrity</span>
+                        </div>
+                    </div>
+                </div>
+
 
             <div class="pricing-grid">
-                <!-- Starter: FREE -->
-                <div class="pricing-card fade-up">
-                    <div class="pricing-plan-name">Starter</div>
-                    <div class="pricing-amount">
-                        <span class="pricing-value free-label" data-monthly="FREE" data-annual="FREE">FREE</span>
-                    </div>
-                    <div class="pricing-period">Free forever</div>
-                    <a href="#" class="btn btn-secondary" onclick="return false;">Get Started</a>
-                    <div class="pricing-divider"></div>
-                    <ul class="pricing-features">
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Up to 10K events/mo</li>
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 1 project</li>
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Core analytics</li>
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Community support</li>
-                    </ul>
-                </div>
-
-                <!-- Pro: $25 / $17.50 -->
-                <div class="pricing-card featured fade-up">
-                    <span class="pricing-popular">Most Popular</span>
-                    <div class="pricing-plan-name">Pro</div>
-                    <div class="pricing-amount">
-                        <span class="pricing-currency">$</span>
-                        <span class="pricing-value" data-monthly="25" data-annual="17.50">25</span>
-                    </div>
-                    <div class="pricing-period" data-monthly="per month" data-annual-total="210">per month</div>
-                    <a href="#" class="btn btn-primary" onclick="return false;">Start Free Trial</a>
-                    <div class="pricing-divider"></div>
-                    <ul class="pricing-features">
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Up to 1M events/mo</li>
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Unlimited projects</li>
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Session replay</li>
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Feature flags &amp; A/B</li>
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Priority support</li>
-                    </ul>
-                </div>
-
-                <!-- Scale: $120 / $84 -->
-                <div class="pricing-card fade-up">
-                    <div class="pricing-plan-name">Scale</div>
-                    <div class="pricing-amount">
-                        <span class="pricing-currency">$</span>
-                        <span class="pricing-value" data-monthly="120" data-annual="84">120</span>
-                    </div>
-                    <div class="pricing-period" data-monthly="per month" data-annual-total="1,008">per month</div>
-                    <a href="#" class="btn btn-secondary" onclick="return false;">Contact Sales</a>
-                    <div class="pricing-divider"></div>
-                    <ul class="pricing-features">
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Unlimited events</li>
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> SSO &amp; SAML</li>
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Custom retention</li>
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Dedicated CSM</li>
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> SLA guarantee</li>
-                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- SUBSCRIBE -->
-    <section class="subscribe-section">
+    <section class="subscribe-section" id="contact">
         <div class="container">
             <div class="subscribe-inner fade-up">
-                <h2 class="section-title">Stay in the loop</h2>
-                <p class="section-desc">Product updates, engineering insights, and zero spam. Unsubscribe anytime.</p>
+                <h2 class="section-title">Ready to level up your data?</h2>
+                <p class="section-desc">Let’s turn your raw numbers into insights. <br>Reach out now!</p>
+                <form action="" method="POST">
+
                 <div class="subscribe-input-group">
-                    <input type="email" placeholder="you@company.com" autocomplete="email">
-                    <button class="btn btn-primary">Subscribe</button>
+                    <input type="text" name="project_title" placeholder="Project title" required>
                 </div>
-                <div class="subscribe-meta">
-                    <span>
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        6,200+ subscribers
-                    </span>
-                    <span>
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Monthly digest
-                    </span>
-                    <span>
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Unsubscribe anytime
-                    </span>
+                <br>
+                <div class="subscribe-input-group">
+                    <input name="email" type="email" placeholder="Your email" autocomplete="email" required>
                 </div>
+                <br>
+                <div class="subscribe-input-group textarea">
+                    <textarea name="project_details" class="subscribe-textarea" placeholder="Tell me about your project"required></textarea>
+                </div>
+                                <br>
+                <div class="subscribe-input-group .btn"> 
+                <button type="submit" class="btn btn-primary">Reach Out!</button>
+                </div>
+                </form>
             </div>
         </div>
     </section>
 
+    
     <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
@@ -2129,42 +2365,7 @@ https://templatemo.com/tm-614-quantix-saas
             });
         });
 
-        // PRICING TOGGLE
-        const pricingToggle = document.getElementById('pricingToggle');
-        const monthlyLabel = document.getElementById('monthlyLabel');
-        const annualLabel = document.getElementById('annualLabel');
-        const priceValues = document.querySelectorAll('.pricing-value');
-        const pricePeriods = document.querySelectorAll('.pricing-period[data-annual-total]');
-        let isAnnual = false;
-
-        pricingToggle.addEventListener('click', () => {
-            isAnnual = !isAnnual;
-            pricingToggle.classList.toggle('annual', isAnnual);
-            monthlyLabel.classList.toggle('active', !isAnnual);
-            annualLabel.classList.toggle('active', isAnnual);
-
-            priceValues.forEach(el => {
-                const newVal = el.dataset[isAnnual ? 'annual' : 'monthly'];
-                // Skip animation for FREE label
-                if (newVal === 'FREE') return;
-
-                el.classList.add('changing');
-                setTimeout(() => {
-                    el.textContent = newVal;
-                    el.classList.remove('changing');
-                }, 180);
-            });
-
-            pricePeriods.forEach(el => {
-                if (isAnnual) {
-                    const total = el.dataset.annualTotal;
-                    el.innerHTML = 'per month <span class="period-yearly">($' + total + ' per year)</span>';
-                } else {
-                    el.innerHTML = el.dataset.monthly;
-                }
-            });
-        });
-
+        
         // COUNTER ANIMATION
         function animateCounter(el) {
             const target = parseFloat(el.dataset.target);
